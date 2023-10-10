@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Titulo from "../Titulo"
 import Tags from "./Tags"
+import Populares from "./Populares"
 
 const GaleriaContainer = styled.div`
     display: flex;
@@ -20,8 +21,7 @@ const Galeria = () => {
                 </SessaoFluida>
                 <Populares />
             </GaleriaContainer>
-        </>
-        
+        </>    
     )
 }
 
