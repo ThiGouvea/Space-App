@@ -5,6 +5,8 @@ import BarraLateral from "./componentes/BarraLateral"
 import Banner from "./componentes/Banner"
 import bannerBackground from './assets/banner.png'
 import Galeria from "./componentes/Galeria"
+import fotos from "./fotos.json"
+import { useState } from "react"
 
 
 const FundoGradiente = styled.div`
@@ -30,8 +32,8 @@ const ConteudoGaleria = styled.section`
   flex-grow: 1;
 `
 
-function App() {
-
+const App = () => {
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   return (
     <FundoGradiente >
       <EstilosGlobais />
@@ -41,7 +43,7 @@ function App() {
           <BarraLateral />
           <ConteudoGaleria>
             <Banner texto="algo" backgroundImage={bannerBackground} />
-            <Galeria />
+            <Galeria fotos={fotosDaGaleria}/>
           </ConteudoGaleria>
         </MainContainer>
       </AppContainer>
