@@ -7,6 +7,7 @@ import bannerBackground from './assets/banner.png'
 import Galeria from "./componentes/Galeria"
 import fotos from "./fotos.json"
 import { useState } from "react"
+import ModalZoom from "./componentes/ModalZoom"
 
 
 const FundoGradiente = styled.div`
@@ -34,6 +35,7 @@ const ConteudoGaleria = styled.section`
 
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
+  const [fotoSelecionada, setFotoSelecionada] = useState(null)
   return (
     <FundoGradiente >
       <EstilosGlobais />
@@ -43,10 +45,14 @@ const App = () => {
           <BarraLateral />
           <ConteudoGaleria>
             <Banner texto="algo" backgroundImage={bannerBackground} />
-            <Galeria fotos={fotosDaGaleria}/>
+            <Galeria 
+              aoFotoSelecionada={foto => setFotoSelecionada(foto)} 
+              fotos={fotosDaGaleria}
+              />
           </ConteudoGaleria>
         </MainContainer>
       </AppContainer>
+      <ModalZoom foto={fotoSelecionada}/>
     </FundoGradiente>
   )
 }
